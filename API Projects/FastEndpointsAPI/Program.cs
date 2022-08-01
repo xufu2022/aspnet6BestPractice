@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=database.sqlite;Cache=Shared";
 var connection = new SqliteConnection(connectionString);
-connection.Open();
+//connection.Open();
 
 // Add services to the container.
 builder.Services.AddFastEndpoints();
@@ -19,8 +20,8 @@ builder.Services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
 
+var app = builder.Build();
 await EnsureDb(app.Services, app.Logger);
 
 // Configure the HTTP request pipeline.
@@ -36,7 +37,6 @@ app.UseAuthorization();
 app.UseFastEndpoints();
 
 app.Run();
-
 async Task EnsureDb(IServiceProvider services, ILogger logger)
 {
     using var db = services.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
