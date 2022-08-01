@@ -48,3 +48,8 @@ dotnet add 'Data\BackendData\BackendData.csproj' package Microsoft.EntityFramewo
 dotnet add 'Data\BackendData\BackendData.csproj' package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add 'Data\BackendData\BackendData.csproj' package SQLite
 
+dotnet add 'Tests\APIProjectTests\APIProjectTests.csproj' package Ardalis.HttpClientTestExtensions
+dotnet add 'Tests\APIProjectTests\APIProjectTests.csproj' package Microsoft.AspNetCore.Mvc.Test
+dotnet add 'Tests\APIProjectTests\APIProjectTests.csproj' package Microsoft.EntityFrameworkCore.InMemory
+dotnet add 'Tests\APIProjectTests\APIProjectTests.csproj' package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add 'Tests\APIProjectTests\APIProjectTests.csproj' package SQLite
